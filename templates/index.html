@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Canary Dashboard | Vincent Priestley</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <pre class="ascii-banner">
+ ██░ ██  ▄████▄  ▓█████ 
+▓██░ ██▒▒██▀ ▀█  ▓█   ▀ 
+▒██▀▀██░▒▓█    ▄ ▒███   
+░▓█ ░██ ▒▓▓▄ ▄██▒▒▓█  ▄ 
+░▓█▒░██▓▒ ▓███▀ ░░▒████▒</pre>
+        <h1>🛡️ HYBRID CANARY SYSTEM</h1>
+        <p class="subtitle">Security Core: Vincent Priestley v1.6 | Status: <span class="status-online">OPERATIONAL</span></p>
+    </header>
+
+    <nav class="controls">
+        <button id="btn-telemetry" class="tab-btn active" onclick="showTab('telemetry')">LIVE TELEMETRY</button>
+        <button id="btn-fleet" class="tab-btn" onclick="showTab('fleet')">FLEET COMMAND</button>
+        <button id="btn-policy" class="tab-btn" onclick="showTab('policy')">POLICY MANAGEMENT</button>
+    </nav>
+
+    <main class="dashboard-layout">
+        <section id="telemetry-view" class="tab-content active-flex">
+            <div class="log-column">
+                <div class="column-header">
+                    <h2>CORE INCIDENT FEED</h2>
+                    <button class="purge-btn" onclick="purgeAllLogs()">PURGE ALL LOGS</button>
+                </div>
+                <div id="inner-logs" class="terminal-glow">
+                    <p class="loading-text">INITIALISING DATA STREAMS...</p>
+                </div>
+            </div>
+
+            <aside class="gallery-column">
+                <h2>FORENSIC EVIDENCE</h2>
+                <div id="snapshot-gallery" class="terminal-glow">
+                    <p class="loading-text">Awaiting forensic snapshots...</p>
+                </div>
+            </aside>
+        </section>
+
+        <section id="fleet-view" class="tab-content hidden">
+            <h2>ACTIVE ENDPOINTS & COMMAND</h2>
+            <div id="fleet-list" class="terminal-glow"></div>
+        </section>
+
+        <section id="policy-view" class="tab-content hidden">
+            <div class="policy-container terminal-glow">
+                <h2 id="policy-target-title">GLOBAL SYSTEM POLICY</h2>
+                <div class="policy-form">
+                    <div class="input-group">
+                        <label class="terminal-label">MONITORED SECTORS</label>
+                        <div class="input-row">
+                            <input type="text" id="admin-path-input" class="terminal-input" placeholder="C:\Secret">
+                            <button class="browse-btn" onclick="browseLocalFolder()">BROWSE</button>
+                        </div>
+                    </div>
+                    <div class="emergency-box">
+                        <div class="emergency-control">
+                            <input type="checkbox" id="auto-lock-toggle" class="custom-checkbox">
+                            <div class="control-text">
+                                <strong>FORCE WORKSTATION LOCKDOWN</strong>
+                                <p>Immediately lock session on tripwire breach.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="apply-btn" onclick="applySecurityPolicy()">DEPLOY POLICY</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div>SOC_NODE: PRIESTLEY_MASTER</div>
+        <div id="sync-timer">LAST SYNC: 0s ago</div>
+        <div>UPTIME: <span id="session-uptime">00:00:00</span></div>
+    </footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

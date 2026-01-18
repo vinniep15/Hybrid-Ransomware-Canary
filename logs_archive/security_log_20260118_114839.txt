@@ -1,0 +1,1 @@
+[2026-01-18 11:44:27] THREAT: dfsg - Copy (3).txt | ACTION: KILLED | IMAGE: alert_20260118_114427.png

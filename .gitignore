@@ -1,0 +1,13 @@
+# I'm ignoring the actual incident data
+security_log.txt
+static/screenshots/*.png
+
+# I'm ignoring Python environment noise
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# I'm ignoring OS metadata
+.DS_Store
+Thumbs.db
