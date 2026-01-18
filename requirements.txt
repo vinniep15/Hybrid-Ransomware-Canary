@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+watchdog
+requests
+pyautogui
+python-multipart
